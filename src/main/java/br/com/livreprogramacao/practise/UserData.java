@@ -42,6 +42,14 @@ public class UserData {
     @Column(name = "sent_count")
     private int sentCount;
 
+    public UserData(String userid, String username, int age, int location, int sentCount) {
+        this.userid = userid;
+        this.username = username;
+        this.age = age;
+        this.location = location;
+        this.sentCount = sentCount;
+    }
+
     public Long getId() {
         return id;
     }

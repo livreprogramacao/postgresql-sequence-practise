@@ -28,12 +28,10 @@ public class UserDataRepository {
             String username = String.format("user-%d", i);
             System.out.format("Username is %s", username);
 
-            UserData user = new UserData();
-            user.setUsername(username);
-
             try {
+
                 manager.getTransaction().begin();
-                manager.persist(user);
+                manager.persist(new UserData(username, username, i, i + 7, i + 3));
                 manager.getTransaction().commit();
 
             } catch (Exception e) {
