@@ -15,7 +15,7 @@ import javax.persistence.Persistence;
  *
  * @author Fabio Santos Almeida <livre.programacao at gmail.com>
  */
-public class NewClass {
+public class UserDataRepository {
 
     public void insert() {
         System.out.println("\n\n\n\n\tThe NewClass is here!\n\n\n\n");

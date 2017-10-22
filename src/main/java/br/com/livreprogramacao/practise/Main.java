@@ -16,7 +16,7 @@ public class Main {
 
         try {
 
-            new NewClass().insert();
+            new UserDataRepository().insert();
 
         } catch (Exception e) {
             System.out.format("\nException message %s", e.getMessage());
