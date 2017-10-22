@@ -23,32 +23,30 @@ public class UserDataRepository {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("postgres");
         EntityManager manager = factory.createEntityManager();
 
-        Collection<String> memberIds = new ArrayList<>();
-
         for (int i = 1; i < 101; i++) {
-            memberIds.add(String.valueOf(i));
-            System.out.format("\n\n\n\n\tThe Member Id is %d!\n\n\n\n", i);
-        }
 
-        try {
+            String username = String.format("user-%d", i);
+            System.out.format("Username is %s", username);
 
-            for (String memberId : memberIds) {
-                System.out.println(memberId);
-                UserData user = new UserData();
-                user.setUserid(memberId);
+            UserData user = new UserData();
+            user.setUsername(username);
+
+            try {
                 manager.getTransaction().begin();
                 manager.persist(user);
                 manager.getTransaction().commit();
+
+            } catch (Exception e) {
+                System.out.format("\nException message %s", e.getMessage());
+                System.out.format("\nException localized message %s\n\n", e.getLocalizedMessage());
+                throw e;
             }
 
-            manager.close();
-            factory.close();
-
-        } catch (Exception e) {
-            System.out.format("\nException message %s", e.getMessage());
-            System.out.format("\nException localized message %s\n\n", e.getLocalizedMessage());
-            throw e;
         }
 
+        manager.close();
+        factory.close();
+
     }
+
 }

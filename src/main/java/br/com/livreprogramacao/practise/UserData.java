@@ -23,9 +23,9 @@ public class UserData {
 
     @Id
     @GeneratedValue(generator = "sequence", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "sequence", schema = "public", sequenceName = "user_data_seq")
+    @SequenceGenerator(name = "sequence", schema = "public", sequenceName = "user_data_seq", initialValue = 1, allocationSize = 1)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "user_id")
     private String userid;
@@ -42,11 +42,11 @@ public class UserData {
     @Column(name = "sent_count")
     private int sentCount;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
