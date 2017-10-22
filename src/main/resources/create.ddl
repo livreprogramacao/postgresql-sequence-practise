@@ -1,6 +1,8 @@
 CREATE DATABASE test ENCODING 'UTF8';
 \C test;
 
+DROP SEQUENCE hibernate_sequence CASCADE;
+
 DROP SEQUENCE user_data_seq CASCADE;
 CREATE SEQUENCE user_data_seq START 1;
 DROP TABLE user_data CASCADE;
